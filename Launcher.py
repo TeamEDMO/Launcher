@@ -25,7 +25,6 @@ def runServer(directory: str, port: int):
         httpd.serve_forever()
 
 
-serverProcess = Process(target=EDMOBackend.main)
 frontendProcess = Process(target=runServer, args=["Controller", 8081])
 adminProcess = Process(target=runServer, args=["Admin", 9000])
 
@@ -33,10 +32,8 @@ try:
     frontendProcess.start()
     adminProcess.start()
     asyncio.run(EDMOBackend.main())
-    while True:
-        pass
+
 finally:
-    serverProcess.join()
-    frontendProcess.join()
-    adminProcess.join()
+    frontendProcess.kill()
+    adminProcess.kill()
 
