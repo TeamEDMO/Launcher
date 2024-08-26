@@ -1,6 +1,5 @@
 import asyncio
 import http.server
-import multiprocessing
 from multiprocessing import Process
 
 from Server import EDMOBackend
@@ -25,15 +24,15 @@ def runServer(directory: str, port: int):
         httpd.serve_forever()
 
 
-frontendProcess = Process(target=runServer, args=["Controller", 8081])
-adminProcess = Process(target=runServer, args=["Admin", 9000])
+if __name__ == "__main__":
+    frontendProcess = Process(target=runServer, args=["Controller", 8081])
+    adminProcess = Process(target=runServer, args=["Admin", 9000])
 
-try:
-    frontendProcess.start()
-    adminProcess.start()
-    asyncio.run(EDMOBackend.main())
+    try:
+        frontendProcess.start()
+        adminProcess.start()
+        asyncio.run(EDMOBackend.main())
 
-finally:
-    frontendProcess.kill()
-    adminProcess.kill()
-
+    finally:
+        frontendProcess.kill()
+        adminProcess.kill()
