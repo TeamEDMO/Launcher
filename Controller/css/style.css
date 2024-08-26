@@ -1,0 +1,417 @@
+:root {
+  --colorTrasition: background-color 300ms, color 300ms;
+  --hue: 300;
+  --backgroundColor: hsl(var(--hue), 50%, 75%);
+
+  --baseLayerColor: hsl(var(--hue), 50%, 55%);
+  --baseAccentColor: hsl(var(--hue), 50%, 65%);
+  --baseTextColor: hsl(var(--hue), 50%, 10%);
+
+  --secondaryBaseColor: hsl(var(--hue), 50%, 35%);
+  --secondaryContentColor: hsl(var(--hue), 60%, 55%);
+
+  --mainLayerShadow: 0 0 1em 0.5em rgba(0, 0, 0, 0.3);
+  font-family: sans-serif;
+}
+
+body {
+  background-color: var(--backgroundColor);
+  display: flex;
+  height: 100dvh;
+  width: 100dvw;
+  flex-direction: row;
+  margin: 0;
+  overflow: hidden;
+  transition: var(--colorTrasition)
+}
+
+div.mainPanel {
+  background-color: var(--baseLayerColor);
+  color: var(--baseTextColor);
+  border-radius: 17px;
+  display: flex;
+  box-shadow: var(--mainLayerShadow);
+  flex: 1 1 auto;
+  padding: 2em;
+  gap: 2em;
+  margin: 1em;
+  flex-direction: column;
+  overflow: auto;
+  transition: var(--colorTrasition);
+  overflow: hidden;
+  ;
+}
+
+div.mainPanel:has(.buttonHidden) {
+  gap: 0;
+}
+
+div.mainContent {
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  overflow: auto;
+  flex: 1;
+}
+
+.textBox {
+  background-color: var(--backgroundColor);
+  height: 2em;
+  padding: 1em;
+  display: flex;
+  gap: 1em;
+  border-radius: 1em;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: fit-content;
+
+  transition: var(--colorTrasition)
+}
+
+.textBoxInput {
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+  flex: 1;
+  resize: vertical;
+  width: 100%;
+}
+
+
+div.wrapContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1.5em;
+  overflow: auto;
+}
+
+.card {
+  display: flex;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 1em;
+  background-color: var(--baseAccentColor);
+  color: var(--baseTextColor);
+  flex-direction: row;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: var(--colorTrasition), height 100ms, transform 100ms;
+  text-align: center;
+  border-width: thick;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.bigText {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+/* Simply a helper style to allow overriding of the existing hue*/
+.playerCard {
+  --hue: 300;
+  --baseAccentColor: hsl(var(--hue), 50%, 65%);
+  --baseTextColor: hsl(var(--hue), 50%, 10%);
+}
+
+.cardText {
+  flex: 1;
+  text-align: left;
+}
+
+
+.playerCardIcon {
+  font-size: 2em;
+  justify-self: flex-end;
+}
+
+.noflex {
+  flex: 0;
+}
+
+.taskCompleted {
+  text-decoration: line-through;
+  text-decoration-thickness: 0.2em;
+}
+
+.selected {
+  border-color: var(--baseTextColor);
+  border-width: thick;
+  border-style: solid;
+
+  transition: var(--colorTrasition), height 100ms, transform 100ms;
+}
+
+.button {
+  align-self: flex-end;
+  border-radius: 0.5em;
+  background-color: var(--baseTextColor);
+  color: white;
+  padding: 1em;
+  font-size: x-large;
+
+  transition: var(--colorTrasition)
+}
+
+.spacer {
+  flex: 1
+}
+
+
+#buttonHelp {
+  display: flex;
+  position: absolute;
+  top: 1em;
+  background-color: #9C5586;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.canvasContainer {
+  flex: 0 0 auto;
+  height: 100%;
+  width: 50%;
+  margin-bottom: -1em;
+  /*Negate the margin of mainPanel*/
+  position: relative;
+  transition: height 200ms, width 200ms;
+}
+
+.controllerContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: height 200ms, width 200ms;
+}
+
+
+.renderCanvas {
+  height: 100%;
+  width: 100%;
+  display: block;
+  filter: grayscale(1);
+  position: absolute;
+  outline: none;
+  mix-blend-mode: luminosity;
+  transition: height 200ms, width 200ms;
+}
+
+@media screen and (orientation: portrait) {
+  .controllerContainer {
+    flex-direction: column;
+
+  }
+
+  .canvasContainer {
+    width: 100%;
+    height: 30%;
+  }
+}
+
+.canvasContainer.simple {
+  height: 20%;
+  width: 100%;
+}
+
+.controllerContainer.simple {
+  flex-direction: column;
+}
+
+.renderCanvas.simple {
+  height: 0%;
+}
+
+
+.slidersContainer {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: auto;
+}
+
+.slider {
+  accent-color: var(--backgroundColor);
+  flex: 1;
+  transition: var(--colorTrasition), accent-color 300ms;
+  touch-action: none;
+  flex: 8;
+}
+
+.panelButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.panelButton {
+  align-self: flex-end;
+  border-radius: 0.5em;
+  background-color: transparent;
+  color: white;
+  padding: 1em;
+  font-size: x-large;
+  justify-content: center;
+  opacity: 0.5;
+}
+
+.panelButtonSelected {
+  background-color: var(--baseTextColor);
+  transition: var(--colorTrasition)
+}
+
+.buttonHidden {
+  height: 0;
+  transform: scaleY(0);
+  transition: height 100ms, transform 100ms;
+}
+
+.panelButtonIcon {
+  font-size: xxx-large;
+}
+
+.selectedButton {
+  font-weight: bolder;
+}
+
+.sliderbox {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.sliderinput {
+  border-radius: 0.5em;
+}
+
+.sliderinputText {
+  text-align: center;
+  font-weight: bold;
+  font-family: "monospace";
+  font-size: x-large;
+  width: 4ch;
+}
+
+
+/*This removes the arrows on the number input box*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*This removes the arrows on the number input box*/
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.feedbackArea {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  bottom: 0;
+}
+
+.topBarArea {
+  position: relative;
+  display: flex;
+  top: 0;
+  margin: 1em;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.topBarIcon {
+  font-size: xxx-large;
+  color: var(--baseLayerColor);
+}
+
+.bubble {
+  background-color: var(--baseLayerColor);
+  color: var(--baseTextColor);
+  font-size: larger;
+  font-weight: bold;
+  flex: 1 1 auto;
+  margin: 2%;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  opacity: 0.8;
+  transition: var(--colorTrasition), transform 150ms;
+  z-index: -1;
+  transform-origin: left;
+}
+
+.taskBubble {
+  margin: 0;
+}
+
+.robotSprite {
+  background-image: url(../Textures/robot1.png);
+  aspect-ratio: 1.46987;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  flex: 0 1 auto;
+  width: 15%;
+  margin: 0 1em;
+  filter: grayscale(1);
+  mix-blend-mode: luminosity;
+  z-index: -1;
+  transition: transform 150ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.75, 1.3);
+}
+
+
+.bloomSprite {
+  aspect-ratio: 1;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  flex: 0 1 auto;
+  width: 15%;
+  margin: 0 1em;
+  z-index: -1;
+  transition: transform 200ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.75, 1.3);
+}
+
+
+@keyframes highlight {
+  0% {
+    border-width: 0.2em;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 0.5em;
+  }
+
+  50% {
+    border-width: 0.2em;
+    border-style: solid;
+    border-color: white;
+    border-radius: 0.5em;
+  }
+
+  100% {
+    border-width: 0.2em;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 0.5em;
+  }
+}
+
+.hidden {
+  transform: translateY(200%) scale(0);
+}
+
+.bloomSprite.hidden {
+  transform: translateY(200%) scale(1);
+  transition: transform 400ms;
+}

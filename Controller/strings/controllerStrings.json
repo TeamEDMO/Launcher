@@ -1,0 +1,78 @@
+{
+    "name": {
+        "en": "Name",
+        "nl": "Naam"
+    },
+    "controllerSetup": {
+        "en": "Controller setup",
+        "nl": "Controller-instelling"
+    },
+    "controllerSetupDesc": {
+        "en": "Enter your name and select the robot you've been assigned to",
+        "nl": "Voer uw naam in en selecteer de robot waaraan u bent toegewezen"
+    },
+    "selectEdmo": {
+        "en": "Select your EDMO",
+        "nl": "Selecteer uw EDMO"
+    },
+    "letsStart": {
+        "en": "Let's start!",
+        "nl": "Laten we beginnen!"
+    },
+    "nameInputPlaceholder": {
+        "en": "Enter your name",
+        "nl": "Vul uw naam in"
+    },
+    "noActiveEdmos": {
+        "en": "No EDMOs are active at this moment.",
+        "nl": "Er zijn op dit moment geen EDMO's actief."
+    },
+    "requestHelp": {
+        "en": "Request help",
+        "nl": "Hulp aanvragen"
+    },
+    "unrequestHelp": {
+        "en": "Undo help request",
+        "nl": "Hulpverzoek ongedaan maken"
+    },
+    "frequency": {
+        "en": "Speed",
+        "nl": "Snelheid"
+    },
+    "amplitude": {
+        "en": "Range",
+        "nl": "Omvang"
+    },
+    "offset": {
+        "en": "Baseline position",
+        "nl": "Startpunt"
+    },
+    "relation": {
+        "en": "Relation",
+        "nl": "Relatie"
+    },
+    "resetSliders": {
+        "en": "Reset values",
+        "nl": "Waarden resetten"
+    },
+    "noPlayers": {
+        "en": "There are no players in this session.",
+        "nl": "Er zijn geen spelers in deze sessie."
+    },
+    "playerIsYou": {
+        "en": "{name} (You)",
+        "nl": "{name} (Jij)"
+    },
+    "playerIsBabaIsYou": {
+        "en": "[{name}] is [You]",
+        "nl": "[{name}] ben [Jij]"
+    },
+    "noTasks": {
+        "en": "There are no tasks in this session.",
+        "nl": "Er zijn geen taken in deze sessie."
+    },
+    "tasksCompleted":{
+        "en": "You've completed all tasks",
+        "nl": "Je hebt alle taken voltooid"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "noGroups": {
+        "en": "No groups are active at this moment.",
+        "nl": "Er zijn op dit moment geen groepen actief."
+    },
+    "search": {
+        "en": "Search",
+        "nl": "Zoeken"
+    },
+    "noPlayers":{
+        "en": "There are no players",
+        "nl": "Er zijn geen spelers"
+    }
+}
