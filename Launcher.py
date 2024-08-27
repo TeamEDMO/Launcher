@@ -1,8 +1,10 @@
 import asyncio
 import http.server
 from multiprocessing import Process
+import sys
 
-from Server import EDMOBackend
+sys.path.append("Server")
+import EDMOBackend  # noqa:E402
 
 
 def handler_from(directory):
