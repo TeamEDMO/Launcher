@@ -1,6 +1,7 @@
 import asyncio
 import http.server
 from multiprocessing import Process
+import socket
 import sys
 
 sys.path.append("Server")
@@ -27,12 +28,27 @@ def runServer(directory: str, port: int):
 
 
 if __name__ == "__main__":
+    hostname = socket.gethostname()
+    IPAddr = socket.gethostbyname(hostname)
+
     frontendProcess = Process(target=runServer, args=["Controller", 8081])
     adminProcess = Process(target=runServer, args=["Admin", 9000])
 
     try:
         frontendProcess.start()
         adminProcess.start()
+
+        print(
+            f"\nBackend server is hosted on {IPAddr}:8000 (User should not directly connect to this)\n"
+        )
+
+        print(f"Controller frontend is hosted on {IPAddr}:8081")
+        print(f"Teacher frontend is hosted on {IPAddr}:9000")
+
+        print(
+            "\nIf the same computer/router is used, the above IP addresses should stay the same. QR codes are recommended for easier connection\n"
+        )
+
         asyncio.run(EDMOBackend.main())
 
     finally:
